@@ -1,0 +1,60 @@
+<div style="margin: 5%;">
+    <button mat-raised-button color="primary" (click)="criarContainer()">
+        <mat-icon>control_point</mat-icon>
+        Criar Container
+    </button>
+    &nbsp;
+    <button mat-raised-button color="warn" (click)="deleteContainersParados()">
+        <mat-icon>remove_circle</mat-icon>
+        Apagar Containers parados
+    </button>
+    <table mat-table [dataSource]="containers" class="example-table" matSort matSortActive="created" matSortDisableClear
+        matSortDirection="desc" style="width: 100%;">
+        <ng-container matColumnDef="CONTAINER_ID">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.Id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="IMAGE">
+            <th mat-header-cell *matHeaderCellDef> Imagem </th>
+            <td mat-cell *matCellDef="let row"> {{row.Image}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="COMMAND">
+            <th mat-header-cell *matHeaderCellDef> Comando </th>
+            <td mat-cell *matCellDef="let row"> {{row.Command}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="State">
+            <th mat-header-cell *matHeaderCellDef> State</th>
+            <td mat-cell *matCellDef="let row"> {{row.State}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="STATUS">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.Status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PORTS">
+            <th mat-header-cell *matHeaderCellDef> Portas </th>
+            <td mat-cell *matCellDef="let row"> {{joinArrayPorts(row.Ports)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NAMES">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let row"> {{row.Names}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="warn" (click)="deleteContainer(row.Id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

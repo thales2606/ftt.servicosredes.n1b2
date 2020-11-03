@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Novo Container</h1>
+<div style="margin: 1%;">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="fromImage" name="image">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Versão</mat-label>
+        <input matInput [(ngModel)]="versao" name="image">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="null">Cancelar</button>
+    <button mat-button (click)="Cadastrar()" cdkFocusInitial>Ok</button>
+</div>

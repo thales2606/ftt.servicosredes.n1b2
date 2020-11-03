@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Novo Container</h1>
+<div style="margin: 1%;">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="data.Hostname" name="names">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Imagem</mat-label>
+        <input matInput [(ngModel)]="data.Image" name="image">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Porta</mat-label>
+        <input matInput [(ngModel)]="data.Porta" name="image">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Porta exposta</mat-label>
+        <input matInput [(ngModel)]="data.PortaExposta" name="image">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="null">Cancelar</button>
+    <button mat-button (click)="Cadastrar()" cdkFocusInitial>Ok</button>
+</div>
