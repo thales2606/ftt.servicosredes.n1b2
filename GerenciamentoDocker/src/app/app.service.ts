@@ -11,7 +11,7 @@ import { ImageModel } from './models/image.model';
 export class AppService {
     constructor(private httpClient: HttpClient) { }
     getAllContainers(): Observable<ContainerModel[]> {
-        return this.httpClient.get<ContainerModel[]>('http://104.41.5.36:2375/containers/json');
+        return this.httpClient.get<ContainerModel[]>('http://104.41.5.36:2375/containers/json?all=true');
     }
     createContainer(container: ContainerModel): Observable<any> {
         return this.httpClient.post<any>('http://104.41.5.36:2375/containers/create?name=' + container.Hostname, container);

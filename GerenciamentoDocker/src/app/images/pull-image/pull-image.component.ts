@@ -24,9 +24,10 @@ export class PullImageComponent implements OnInit {
       }, err => {
         if (err.status != 200) {
           console.error(err);
-          this._snackBar.open("Não foi possivel realizar o Pull!", "X", {
-            duration: 5000,
-          });
+          this.dialogRef.close(true);
+          // this._snackBar.open("Não foi possivel realizar o Pull!", "X", {
+          //   duration: 5000,
+          // });
         }
         else
           this.dialogRef.close(true);

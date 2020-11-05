@@ -35,15 +35,17 @@ export class CreateContainerComponent implements OnInit {
             this.dialogRef.close(true);
           }, err => {
             console.error(err);
-            this._snackBar.open("Não foi possivel iniciar o novo container!", "X", {
-              duration: 5000,
-            })
+            this.dialogRef.close(true);
+            // this._snackBar.open("Não foi possivel iniciar o novo container!", "X", {
+            //   duration: 5000,
+            // })
           })
       }, err => {
         console.error(err);
-        this._snackBar.open("Não foi possivel criar um novo container!", "X", {
-          duration: 5000,
-        });
+        this.dialogRef.close(true);
+        // this._snackBar.open("Não foi possivel criar um novo container!", "X", {
+        //   duration: 5000,
+        // });
       });
   }
 }
